@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension format="1.0">
+  <extension_code>schirrms-ci-listening-ports</extension_code>
+  <version>0.0.1</version>
+  <label><![CDATA[CI Listening Ports]]></label>
+  <description><![CDATA[Add a 'Listenig ports' panel to CI]]></description>
+  <mandatory>false</mandatory>
+  <more_info_url>https://github.com/Schirrms/iTop-CI-Listening-Ports</more_info_url>
+</extension>

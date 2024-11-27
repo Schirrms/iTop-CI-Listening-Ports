@@ -1,0 +1,16 @@
+{
+  "config": {
+    "classmap-authoritative": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Schirrms\\iTop\\Extension\\": "src"
+    }
+  },
+  "name": "schirrms/schirrms-ci-listening-ports",
+  "type": "itop-extension",
+  "description": "CI Listening Ports",
+  "require": {
+    "composer-runtime-api": "^2.0"
+  }
+}

@@ -15,7 +15,9 @@ SetupWebPage::AddModule(
 		// Setup
 		//
 		'dependencies' => array(
-			'itop-config-mgmt/2.7.0'
+			'itop-virtualization-mgmt/2.7.0',
+			'itop-config-mgmt/2.7.0',
+			'teemip-ip-mgmt/2.7.0'
 		),
 		'mandatory' => false,
 		'visible' => true,

@@ -10,6 +10,7 @@
 	// Dictionary entries go here
 	'Class:FunctionalCI/Attribute:listeningport_list' => 'Port(s) réseau en écoute',
 	'Class:SoftwareInstance/Attribute:softwarelisteningport_list' => 'Port(s) réseau en écoute',
+	'Class:lnkListeningPortToSoftwareInstance' => 'Lien Port Réseau / Instance Logicielle',
 	'Class:lnkListeningPortToSoftwareInstance/Attribute:softwarelisteningport_id' => 'Port(s) réseau en écoute',
 	'Class:lnkListeningPortToSoftwareInstance/Attribute:softwareinstance_id' => 'Logiciel(s) utilisant ce port',
 	'Class:ListeningPort' => 'Port réseau en écoute',

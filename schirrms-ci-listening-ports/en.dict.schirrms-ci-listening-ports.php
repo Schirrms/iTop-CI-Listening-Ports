@@ -10,6 +10,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	// Dictionary entries go here
 	'Class:FunctionalCI/Attribute:listeningport_list' => 'Network port(s) listening',
 	'Class:SoftwareInstance/Attribute:softwarelisteningport_list' => 'Network port(s) listening',
+	'Class:lnkListeningPortToSoftwareInstance' => 'Link Network Port / Software Instance',
 	'Class:lnkListeningPortToSoftwareInstance/Attribute:softwarelisteningport_id' => 'Network port(s) listening',
 	'Class:lnkListeningPortToSoftwareInstance/Attribute:softwareinstance_id' => 'Software(s) using this port',
 	'Class:ListeningPort' => 'Listening Port',

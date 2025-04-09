@@ -9,6 +9,9 @@
 Dict::Add('EN US', 'English', 'English', array(
 	// Dictionary entries go here
 	'Class:FunctionalCI/Attribute:listeningport_list' => 'Network port(s) listening',
+	'Class:SoftwareInstance/Attribute:softwarelisteningport_list' => 'Network port(s) listening',
+	'Class:lnkListeningPortToSoftwareInstance/Attribute:softwarelisteningport_id' => 'Network port(s) listening',
+	'Class:lnkListeningPortToSoftwareInstance/Attribute:softwareinstance_id' => 'Software(s) using this port',
 	'Class:ListeningPort' => 'Listening Port',
 	'Class:ListeningPort/Attribute:functionalci_id' => 'CI with the open port',
 	'Class:ListeningPort/Attribute:functionalci_name' => 'CI with the open port',
@@ -20,8 +23,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:ListeningPort/Attribute:proto' => 'IP protocol (tcp or udp)',
 	'Class:ListeningPort/Attribute:port' => 'Port listening',
 	'Class:ListeningPort/Attribute:port+' => 'A valid IP network port is between 0 (unlikelly), better between 1 an 65535',
-	'Class:ListeningPort/Attribute:softwareinstance_id' => 'The software behind the listening port',
-	'Class:ListeningPort/Attribute:softwareinstance_name' => 'The software behind the listening port',
+	'Class:ListeningPort/Attribute:softwareinstance_list' => 'Software(s) behind the listening port',
 	'Class:ListeningPort/Attribute:softwareinstance_id_finalclass_recall' => 'Software Category',
 ));
 ?>

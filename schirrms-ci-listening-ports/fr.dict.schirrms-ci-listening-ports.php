@@ -9,6 +9,9 @@
  Dict::Add('FR FR', 'French', 'Français', array(
 	// Dictionary entries go here
 	'Class:FunctionalCI/Attribute:listeningport_list' => 'Port(s) réseau en écoute',
+	'Class:SoftwareInstance/Attribute:softwarelisteningport_list' => 'Port(s) réseau en écoute',
+	'Class:lnkListeningPortToSoftwareInstance/Attribute:softwarelisteningport_id' => 'Port(s) réseau en écoute',
+	'Class:lnkListeningPortToSoftwareInstance/Attribute:softwareinstance_id' => 'Logiciel(s) utilisant ce port',
 	'Class:ListeningPort' => 'Port réseau en écoute',
 	'Class:ListeningPort/Attribute:functionalci_id' => 'CI sur lequel se trouve le port en écoute',
 	'Class:ListeningPort/Attribute:functionalci_name' => 'CI sur lequel se trouve le port en écoute',
@@ -20,8 +23,7 @@
 	'Class:ListeningPort/Attribute:proto' => 'Protocole IP (tcp ou udp)',
 	'Class:ListeningPort/Attribute:port' => 'Port en écoute',
 	'Class:ListeningPort/Attribute:port+' => 'Un port réseau valide est compris entre 0 (très peu probable), plutôt 1 et 65535',
-	'Class:ListeningPort/Attribute:softwareinstance_id' => 'Le logiciel qui \'ouvre\' le port',
-	'Class:ListeningPort/Attribute:softwareinstance_name' => 'Le logiciel qui \'ouvre\' le port',
+	'Class:ListeningPort/Attribute:softwareinstance_list' => 'Logiciel(s) qui \'ouvre(nt)\' le port',
 	'Class:ListeningPort/Attribute:softwareinstance_id_finalclass_recall' => 'La catégorie du logiciel',
 ));
 ?>

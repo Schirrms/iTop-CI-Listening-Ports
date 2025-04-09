@@ -66,16 +66,12 @@
           <sql>port</sql>
           <is_null_allowed>true</is_null_allowed>
         </field>
-        <field id="softwareinstance_id" xsi:type="AttributeExternalKey">
-          <sql>softwareinstance_id</sql>
-          <target_class>SoftwareInstance</target_class>
-          <is_null_allowed>true</is_null_allowed>
-          <on_target_delete>DEL_AUTO</on_target_delete>
-          <allow_target_creation>false</allow_target_creation>
-        </field>
-        <field id="softwareinstance_name" xsi:type="AttributeExternalField">
-          <extkey_attcode>softwareinstance_id</extkey_attcode>
-          <target_attcode>name</target_attcode>
+        <field id="softwareinstance_list" xsi:type="AttributeLinkedSetIndirect">
+          <linked_class>lnkListeningPortToSoftwareInstance</linked_class>
+          <ext_key_to_me>softwarelisteningport_id</ext_key_to_me>
+          <ext_key_to_remote>softwareinstance_id</ext_key_to_remote>
+          <count_min>0</count_min>
+          <count_max>0</count_max>
         </field>
       </fields>
       <presentation>
@@ -93,8 +89,8 @@
             <item  id="port">
               <rank>40</rank>              
             </item>
-            <item  id="softwareinstance_id">
-              <rank>50</rank>              
+            <item  id="softwareinstance_list">
+              <rank>100</rank>              
             </item>
           </items>
         </details>
@@ -112,9 +108,6 @@
             <item  id="port">
               <rank>40</rank>              
             </item>
-            <item  id="softwareinstance_id">
-              <rank>50</rank>              
-            </item>
           </items>
         </list>
         <search>
@@ -131,13 +124,93 @@
             <item  id="port">
               <rank>40</rank>              
             </item>
-            <item  id="softwareinstance_id">
-              <rank>50</rank>              
-            </item>
           </items>
         </search>
       </presentation>
       <methods></methods>
+    </class>
+    <class id="lnkListeningPortToSoftwareInstance" _delta="define">
+      <parent>cmdbAbstractObject</parent>
+      <properties>
+        <is_link>1</is_link>
+        <category>bizmodel</category>
+        <abstract>false</abstract>
+        <key_type>autoincrement</key_type>
+        <db_table>lnklisteningporttosoftwareinstance</db_table>
+        <db_key_field>id</db_key_field>
+        <db_final_class_field/>
+        <naming>
+          <attributes>
+            <attribute id="softwarelisteningport_port"/>
+            <attribute id="softwareinstance_name"/>
+          </attributes>
+        </naming>
+        <display_template/>
+        <icon/>
+        <reconciliation>
+          <attributes>
+            <attribute id="softwarelisteningport_id"/>
+            <attribute id="softwareinstance_id"/>
+          </attributes>
+        </reconciliation>
+      </properties>
+      <fields>
+        <field id="softwarelisteningport_id" xsi:type="AttributeExternalKey">
+          <sql>softwarelisteningport_id</sql>
+          <target_class>ListeningPort</target_class>
+          <is_null_allowed>false</is_null_allowed>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+          <allow_target_creation>false</allow_target_creation>
+        </field>
+        <field id="softwarelisteningport_port" xsi:type="AttributeExternalField">
+          <extkey_attcode>softwarelisteningport_id</extkey_attcode>
+          <target_attcode>port</target_attcode>
+        </field>
+        <field id="softwareinstance_id" xsi:type="AttributeExternalKey">
+          <sql>softwareinstance_id</sql>
+          <target_class>SoftwareInstance</target_class>
+          <is_null_allowed>false</is_null_allowed>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+          <allow_target_creation>false</allow_target_creation>
+        </field>
+        <field id="softwareinstance_name" xsi:type="AttributeExternalField">
+          <extkey_attcode>softwareinstance_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
+        </field>
+      </fields>
+      <methods/>
+      <presentation>
+        <details>
+          <items>
+            <item  id="softwarelisteningport_id">
+              <rank>10</rank>              
+            </item>
+            <item  id="softwareinstance_id">
+              <rank>20</rank>              
+            </item>
+          </items>
+        </details>
+        <list>
+          <items>
+            <item  id="softwarelisteningport_id">
+              <rank>10</rank>              
+            </item>
+            <item  id="softwareinstance_id">
+              <rank>20</rank>              
+            </item>
+          </items>
+        </list>
+        <search>
+          <items>
+            <item  id="softwarelisteningport_id">
+              <rank>10</rank>              
+            </item>
+            <item  id="softwareinstance_id">
+              <rank>20</rank>              
+            </item>
+          </items>
+        </search>
+      </presentation>
     </class>
     <class id="FunctionalCI" _delta="merge">
       <fields>
@@ -173,6 +246,104 @@
           </items>
         </details>
       </presentation>    
+    </class>
+    <class id="SoftwareInstance" _delta="merge">
+      <fields>
+        <field id="softwarelisteningport_list" xsi:type="AttributeLinkedSetIndirect" _delta="define">
+          <linked_class>lnkListeningPortToSoftwareInstance</linked_class>
+          <ext_key_to_me>softwareinstance_id</ext_key_to_me>
+          <ext_key_to_remote>softwarelisteningport_id</ext_key_to_remote>
+          <count_min>0</count_min>
+          <count_max>0</count_max>
+          <duplicates>true</duplicates> 
+        </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="softwarelisteningport_list" _delta="define">
+              <rank>110</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="OtherSoftware" _delta="if_exists">
+      <presentation>
+        <details>
+          <items>
+            <item id="softwarelisteningport_list" _delta="define">
+              <rank>110</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="ContainerSoftware" _delta="if_exists">
+      <presentation>
+        <details>
+          <items>
+            <item id="softwarelisteningport_list" _delta="define">
+              <rank>110</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="Middleware" _delta="if_exists">
+      <presentation>
+        <details>
+          <items>
+            <item id="softwarelisteningport_list" _delta="define">
+              <rank>110</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="WebServer" _delta="if_exists">
+      <presentation>
+        <details>
+          <items>
+            <item id="softwarelisteningport_list" _delta="define">
+              <rank>110</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="DBServer" _delta="if_exists">
+      <presentation>
+        <details>
+          <items>
+            <item id="softwarelisteningport_list" _delta="define">
+              <rank>110</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="CIService" _delta="if_exists">
+      <presentation>
+        <details>
+          <items>
+            <item id="softwarelisteningport_list" _delta="define">
+              <rank>110</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="PCSoftware" _delta="if_exists">
+      <presentation>
+        <details>
+          <items>
+            <item id="softwarelisteningport_list" _delta="define">
+              <rank>110</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
     </class>
   </classes>
   <menus>
